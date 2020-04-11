@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>L05.4.</title>
+</head>
+<body>
+<form id="formX" onsubmit="getFormValues()">
+  Nume: <input type="text" name="nume" value="Popescu"><br>
+  Prenume: <input type="text" name="prenume" value="Ionut"><br>
+  <input type="submit" value="Trimite">
+
+
+  <script type="text/javascript">
+  	
+  	var nume=document.getElementById("formX").elements[0].value;
+  	var prenume=document.getElementById("formX").elements[1].value;
+  	console.log("nume= "+nume);
+  	console.log("prenume= "+prenume);
+  </script>
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>L05.5.</title>
+<meta charset=utf-8 />
+</head>
+<body>
+<p><a id="lnkX" type="text/html" target="_blank" hreflang="ro-ro" href="https://unitbv.ro">UNITBV</a></p>
+<button onclick="getAttributes()">Click here to get  attributes value</button>
+
+<script type="text/javascript">
+	function getAttributes()
+{
+ var u = document.getElementById("lnkX").href;
+ console.log('The value of the href attribute of the link is : '+u);
+ var v = document.getElementById("lnkX").hreflang;   
+ console.log('The value of the hreflang attribute of the link is : '+v);
+ var x = document.getElementById("lnkX").target; 
+  console.log('The value of the taget attribute of the link is : '+x);
+ var y = document.getElementById("lnkX").type; 
+  console.log('The value of the type attribute of the link is : '+y);  
+}
+
+
+</script>
+</body>
+</html>
