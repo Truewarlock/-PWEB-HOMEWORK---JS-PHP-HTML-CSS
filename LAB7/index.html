@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LAB 6</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  
+<div class="container">
+  <form class="form-horizontal" role="form" id="myForm" action="withoutAJAX.php" method="post">
+                <h1>Registration</h1>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="fname" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                        <label id="fnameRes"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="lname" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                        <label id="lnameRes"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" name="email" id="email" placeholder="Email" class="form-control" name= "email">
+                        <label id="emailRes" textcolo='red'></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="user" class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="user" id="user" placeholder="Username" class="form-control" autofocus>
+                        <label id="userRes"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password"  class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" name="pass" id="password" placeholder="Password" class="form-control">
+                        <label id="passRes"></label>
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" name="birth" id="birthDate" class="form-control">
+                        <label id="birthRes"></label>
+                    </div>
+                </div>
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="femaleRadio" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender"id="maleRadio" value="Male">Male
+                                </label>
+                                <br><br>
+                                <div>
+                     			CHECKBOX:	<input type="checkbox" id="myCheck" onclick="cBox()">
+                     				<label id="cboxlable"></label>
+                				</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+               
+
+				
+                 <!-- /.form-group -->
+                <br><br>
+				<script>
+       				 $(document).ready(function(){
+           				 $("#sendAJAX").click(function(){
+               				 var user=$("#user").val();
+               				 var pass=$("#password").val();
+               				 var email=$("#email").val();
+               				 var fname=$("#firstName").val();
+               				 var lname=$("#lastName").val();
+                       var birth=$("#birthDate").val();
+                       var gender=$("input[name='gender']:checked").val();
+               				 $.ajax({
+               				     url:'withAJAX.php',
+                  				  method:'POST',
+                    				data:{
+                        			user:user,
+                       				email:email,
+                       				pass:pass,
+                       				fname:fname,
+                       				lname:lname,
+                              birth:birth,
+                              gender:gender
+                    				},
+                  				 success:function(data){
+                     				  alert(data);
+                  				 }
+                				});
+           				 });
+       				 });
+   				</script>
+          
+          
+                <button type="button" id="sendAJAX" class="btn btn-primary btn-block" onclick="is_everything_right(
+                document.getElementById('email').value,
+                document.getElementById('user').value,
+                document.getElementById('password').value,
+                document.getElementById('firstName').value,
+                document.getElementById('lastName').value,
+                document.getElementById('birthDate').value)">Register with AJAX</button>
+                <button type="submit" id="withoutAJAX" class="btn btn-primary btn-block">Register</button>
+            </form> <!-- /form -->         
+</div>
+
+</body>
+</html>
